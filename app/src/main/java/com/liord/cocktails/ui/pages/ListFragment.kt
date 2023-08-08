@@ -12,14 +12,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.liord.cocktails.R
 import com.liord.cocktails.databinding.FragmentListBinding
 import com.liord.cocktails.domain.ListViewModel
-import com.liord.cocktails.domain.Сocktail
+import com.liord.cocktails.data.Cocktail
 import com.liord.cocktails.launchWhenStarted
-import com.liord.cocktails.ui.pages.listadapter.СocktailsAdapter
+import com.liord.cocktails.ui.pages.listadapter.CocktailsAdapter
 
 class ListFragment : BaseFragment<FragmentListBinding>(R.layout.fragment_list) {
 
     private val viewModel: ListViewModel by viewModels()
-    private val cocktailsAdapter = СocktailsAdapter()
+    private val cocktailsAdapter = CocktailsAdapter()
 
     override fun bindView(inflater: LayoutInflater, viewGroup: ViewGroup?) =
         FragmentListBinding.inflate(inflater, viewGroup, false)
@@ -43,7 +43,7 @@ class ListFragment : BaseFragment<FragmentListBinding>(R.layout.fragment_list) {
         }
     }
 
-    private fun initState(items: List<Сocktail>) {
+    private fun initState(items: List<Cocktail>) {
         views {
             val isShowItems = items.isNotEmpty()
             image.isVisible = !isShowItems
@@ -55,7 +55,7 @@ class ListFragment : BaseFragment<FragmentListBinding>(R.layout.fragment_list) {
         }
     }
 
-    private fun showItems(items: List<Сocktail>) {
+    private fun showItems(items: List<Cocktail>) {
         cocktailsAdapter.setItems(items)
     }
 }

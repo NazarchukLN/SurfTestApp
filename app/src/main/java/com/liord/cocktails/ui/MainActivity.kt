@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         showFragment(ListFragment())
     }
 
-    protected fun showFragment(
+    private fun showFragment(
         fragment: Fragment,
         containerId: Int = R.id.main_container,
         addToStack: Boolean = false

@@ -4,25 +4,36 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.liord.cocktails.databinding.ItemListBinding
-import com.liord.cocktails.domain.Сocktail
+import com.liord.cocktails.data.Cocktail
 
 
-class СocktailsAdapter : RecyclerView.Adapter<СocktailViewHolder>() {
+class CocktailsAdapter : RecyclerView.Adapter<CocktailViewHolder>() {
 
-    private var items: MutableList<Сocktail> = mutableListOf()
+    private var items: MutableList<Cocktail> = mutableListOf()
 
-    fun setItems(items: List<Сocktail>) {
+    private var listener: OnItemClickListener? = null
+
+    fun setItems(items: List<Cocktail>) {
         this.items = items.toMutableList()
         notifyDataSetChanged()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = СocktailViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = CocktailViewHolder(
         ItemListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
     )
 
-    override fun onBindViewHolder(holder: СocktailViewHolder, position: Int) {
-        holder.bind(items[position])
+    override fun onBindViewHolder(holder: CocktailViewHolder, position: Int) {
+        holder.bind(items[position], listener)
     }
 
     override fun getItemCount(): Int = items.size
+
+    fun setOnItemClickListener(listener: OnItemClickListener?) {
+        this.listener = listener
+    }
+
+    interface OnItemClickListener {
+
+        fun onItemClick(cocktail: Cocktail)
+    }
 }
