@@ -12,5 +12,8 @@ class CocktailViewHolder(
         with(itemBinding) {
             name.text = cocktail.name
         }
+        itemView.setOnClickListener {
+            listener?.onItemClick(cocktail)
+        }
     }
 }

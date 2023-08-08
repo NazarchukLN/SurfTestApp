@@ -8,15 +8,13 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.liord.cocktails.R
 import com.liord.cocktails.databinding.FragmentListBinding
 import com.liord.cocktails.domain.ListViewModel
 import com.liord.cocktails.data.Cocktail
 import com.liord.cocktails.launchWhenStarted
 import com.liord.cocktails.ui.pages.listadapter.CocktailsAdapter
 
-class ListFragment : BaseFragment<FragmentListBinding>(R.layout.fragment_list) {
+class ListFragment : BaseFragment<FragmentListBinding>(), CocktailsAdapter.OnItemClickListener {
 
     private val viewModel: ListViewModel by viewModels()
     private val cocktailsAdapter = CocktailsAdapter()
@@ -35,7 +33,11 @@ class ListFragment : BaseFragment<FragmentListBinding>(R.layout.fragment_list) {
             list.apply {
                 layoutManager = GridLayoutManager(context, 2)
                 setHasFixedSize(true)
+                cocktailsAdapter.setOnItemClickListener(this@ListFragment)
                 adapter = cocktailsAdapter
+            }
+            addButton.setOnClickListener {
+                showFragment(EditFragment(), addToStack = true)
             }
         }
         viewModel.items.launchWhenStarted(lifecycleScope) { items ->
@@ -57,5 +59,9 @@ class ListFragment : BaseFragment<FragmentListBinding>(R.layout.fragment_list) {
 
     private fun showItems(items: List<Cocktail>) {
         cocktailsAdapter.setItems(items)
+    }
+
+    override fun onItemClick(cocktail: Cocktail) {
+        showFragment(DetailsFragment(), addToStack = true)
     }
 }
