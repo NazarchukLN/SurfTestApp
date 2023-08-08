@@ -3,4 +3,10 @@
     <string name="add_info">Add your first\ncocktail here</string>
     <string name="edit">Edit</string>
     <string name="recipe">Recipe:</string>
+
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="recipe_add">Recipe</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
 </resources>

@@ -23,12 +23,12 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>() {
         ViewModelFactory(MainActivity.repository)
     }
 
-    override fun bindView(inflater: LayoutInflater, viewGroup: ViewGroup?) =
-        FragmentDetailsBinding.inflate(inflater, viewGroup, false)
-
     private val cocktailId: String? by lazy {
         arguments?.getString(EXTRA_COCKTAIL_ID)
     }
+
+    override fun bindView(inflater: LayoutInflater, viewGroup: ViewGroup?) =
+        FragmentDetailsBinding.inflate(inflater, viewGroup, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -40,7 +40,7 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>() {
         views {
             info.movementMethod = ScrollingMovementMethod()
             editButton.setOnClickListener {
-
+                showFragment(EditFragment.getInstance(cocktailId))
             }
         }
         viewModel.details.launchWhenStarted(lifecycleScope) { cocktail ->

@@ -4,29 +4,104 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp"
     tools:context=".ui.pages.ListFragment">
 
     <ImageView
         android:id="@+id/image"
-        android:layout_width="283dp"
-        android:layout_height="283dp"
-        android:layout_marginTop="80dp"
-        android:src="@drawable/placeholder"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/add_photo_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_title"
+        style="@style/Edit.Input"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Edit"
-        android:textColor="#000000"
-        android:textSize="30sp"
-        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:hint="@string/title"
+        app:helperText="add title"
+        app:helperTextEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image" />
+        app:layout_constraintTop_toBottomOf="@id/image"
+        app:shapeAppearance="@style/InputShape">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_recipe"
+        style="@style/Edit.Input"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginTop="20dp"
+        android:hint="@string/recipe_add"
+        app:helperText="Optional field"
+        app:helperTextEnabled="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/input_desc"
+        app:shapeAppearance="@style/InputShape">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="top|start" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_desc"
+        style="@style/Edit.Input"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginTop="20dp"
+        android:hint="@string/description"
+        app:helperText="Optional field"
+        app:helperTextEnabled="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/input_title"
+        app:shapeAppearance="@style/InputShape">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="top|start" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/save_button"
+        style="@style/BlueButton"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/button_background"
+        android:text="@string/save"
+        app:layout_constraintBottom_toTopOf="@id/cancel_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cancel_button"
+        style="@style/BlueButton"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/button_background"
+        android:text="@string/cancel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

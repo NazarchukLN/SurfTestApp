@@ -7,7 +7,7 @@ import com.liord.cocktails.data.CocktailRepository
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
-class DetailsViewModel(
+open class DetailsViewModel(
     private val repository: CocktailRepository
 ) : ViewModel() {
 

@@ -42,4 +42,24 @@
         <item name="android:fontFamily">@font/didact_gothic</item>
     </style>
 
+    <style name="BlueButton">
+        <item name="android:textColor">@color/item_text_color</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@font/didact_gothic</item>
+    </style>
+
+    <style name="Edit" />
+
+    <style name="Edit.Input" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:fontFamily">@font/didact_gothic</item>
+        <item name="android:textSize">18sp</item>
+        <item name="boxStrokeColor">#00FFFF</item>
+    </style>
+
+    <style name="InputShape" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">20dp</item>>
+    </style>
+
 </resources>
