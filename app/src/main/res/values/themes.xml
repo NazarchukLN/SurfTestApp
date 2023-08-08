@@ -1,8 +1,45 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <style name="Theme.SurfTestApp" parent="Theme.MaterialComponents.DayNight.NoActionBar"/>
+
+    <style name="Theme.SurfTestApp" parent="Theme.MaterialComponents.Light.NoActionBar" />
 
     <style name="Theme.SurfTestApp.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+
+
+    <style name="Main" />
+
+    <style name="Main.Title">
+        <item name="android:textColor">@color/general_text_color</item>
+        <item name="android:textSize">36sp</item>
+        <item name="android:fontFamily">@font/didact_gothic</item>
+    </style>
+
+    <style name="Main.AddInfoText">
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/didact_gothic</item>
+    </style>
+
+    <style name="Main.ItemTitle">
+        <item name="android:textColor">@color/item_text_color</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">@font/didact_gothic</item>
+    </style>
+
+    <style name="Details" />
+
+    <style name="Details.Title">
+        <item name="android:textColor">@color/general_text_color</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:fontFamily">@font/didact_gothic</item>
+    </style>
+
+    <style name="Details.Info">
+        <item name="android:textColor">@color/general_text_color</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/didact_gothic</item>
+    </style>
+
 </resources>

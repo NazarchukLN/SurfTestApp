@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
+    <color name="general_text_color">#313131</color>
+    <color name="text_color">#79747E</color>
+    <color name="item_text_color">#FFFFFF</color>
 </resources>

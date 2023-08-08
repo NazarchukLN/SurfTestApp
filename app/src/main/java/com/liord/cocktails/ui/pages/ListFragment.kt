@@ -12,11 +12,19 @@ import com.liord.cocktails.databinding.FragmentListBinding
 import com.liord.cocktails.domain.ListViewModel
 import com.liord.cocktails.data.Cocktail
 import com.liord.cocktails.launchWhenStarted
+import com.liord.cocktails.ui.MainActivity
 import com.liord.cocktails.ui.pages.listadapter.CocktailsAdapter
+
+/**
+ * The number of columns in the grid
+ */
+const val SPAN_COUNT = 2
 
 class ListFragment : BaseFragment<FragmentListBinding>(), CocktailsAdapter.OnItemClickListener {
 
-    private val viewModel: ListViewModel by viewModels()
+    private val viewModel: ListViewModel by viewModels {
+        ViewModelFactory(MainActivity.repository)
+    }
     private val cocktailsAdapter = CocktailsAdapter()
 
     override fun bindView(inflater: LayoutInflater, viewGroup: ViewGroup?) =
@@ -31,13 +39,13 @@ class ListFragment : BaseFragment<FragmentListBinding>(), CocktailsAdapter.OnIte
     private fun initViews() {
         views {
             list.apply {
-                layoutManager = GridLayoutManager(context, 2)
+                layoutManager = GridLayoutManager(context, SPAN_COUNT)
                 setHasFixedSize(true)
                 cocktailsAdapter.setOnItemClickListener(this@ListFragment)
                 adapter = cocktailsAdapter
             }
             addButton.setOnClickListener {
-                showFragment(EditFragment(), addToStack = true)
+                showFragment(EditFragment())
             }
         }
         viewModel.items.launchWhenStarted(lifecycleScope) { items ->
@@ -62,6 +70,6 @@ class ListFragment : BaseFragment<FragmentListBinding>(), CocktailsAdapter.OnIte
     }
 
     override fun onItemClick(cocktail: Cocktail) {
-        showFragment(DetailsFragment(), addToStack = true)
+        showFragment(DetailsFragment.getInstance(cocktail.name))
     }
 }

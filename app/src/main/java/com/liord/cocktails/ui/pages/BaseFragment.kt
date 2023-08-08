@@ -32,7 +32,7 @@ abstract class BaseFragment<T : ViewBinding> : Fragment() {
     protected fun showFragment(
         fragment: Fragment,
         containerId: Int = R.id.main_container,
-        addToStack: Boolean = false
+        addToStack: Boolean = true
     ) {
         parentFragmentManager.commit {
             replace(containerId, fragment, fragment.javaClass.simpleName)
